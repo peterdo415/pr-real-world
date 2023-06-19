@@ -7,20 +7,20 @@ class ArticlesController < ApplicationController
     @article = @current_user.articles.new(article_params)
 
     if @article.save
-      render_article(@current_user)
+      render_article(@article.user)
     else
       render json: @article.errors, status: :unprocessable_entity
     end
   end
 
   def show
-    @article = Article.find(params[:slug])
+    @article = Article.find_by(slug: params[:slug])
     # 関連付けしているのにuserがundefined method for nil:NilClass
     render_article(@article.user)
   end
 
   def update
-    @article = Article.find(params[:slug])
+    @article = Article.find_by(slug: params[:slug])
 
     if @article.update(article_params)
       render_article(@article.user)
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:slug]).destroy
+    @article = Article.find_by(slug: params[:slug])
   end
 
   private
