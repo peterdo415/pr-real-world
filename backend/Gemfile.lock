@@ -213,7 +213,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   tzinfo-data
-  unicorn
+  unicorn (= 6.1.0)
 
 RUBY VERSION
    ruby 3.2.2p53
