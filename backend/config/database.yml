@@ -5,6 +5,7 @@ default: &default
   collation: utf8mb4_general_ci
   username: admin
   password: password
+  host: quest-db-instance.cypsj5y93ozw.ap-northeast-1.rds.amazonaws.com
   pool: 5
   timeout: 5000
 
